@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: {{ .Values.component }}
   labels:
-    {{- include "roboshop.labels" . | nindent 4 }}
+    component: {{ .Values.component }}
 spec:
   serviceAccountName: {{ .Values.component }}
   containers:
