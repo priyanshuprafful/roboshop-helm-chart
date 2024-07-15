@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: schema-loader
-          image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.1
+          image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.3
           arg: [ "{{ .Values.schemaLoadJob.type }}", "{{ .Values.component }}" ]
           env:
             - name: env
