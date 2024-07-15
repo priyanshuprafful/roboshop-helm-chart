@@ -13,6 +13,9 @@ spec:
         - name: schema-loader
           image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.1
           arg: [ "{{ .Values.schemaLoadJob.type }}", "{{ .Values.component }}" ]
+          env:
+            - name: env
+              value: {{ .Values.env }}
           command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
   backoffLimit: 1f
