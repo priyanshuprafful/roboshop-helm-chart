@@ -11,6 +11,7 @@ spec:
       containers:
         - name: schema-loader
           image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.0
+          arg: [ "", "" ]
           command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
       restartPolicy: Never
   backoffLimit: 1f
