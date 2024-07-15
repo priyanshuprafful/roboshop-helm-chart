@@ -6,9 +6,9 @@ metadata:
   labels:
     component: {{ .Values.component }}
 spec:
-  serviceAccountName: {{ .Values.component }}
-  template:
+   template:
     spec:
+      serviceAccountName: {{ .Values.component }}
       containers:
         - name: schema-loader
           image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.3
