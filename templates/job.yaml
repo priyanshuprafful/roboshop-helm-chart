@@ -20,4 +20,3 @@ spec:
    backoffLimit: 1
      {{- end }}
 
- 
