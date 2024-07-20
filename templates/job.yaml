@@ -1,25 +1,24 @@
-    {{- if .Values.schemaLoadJob.create -}}
+{{- if .Values.schemaLoadJob.create -}}
 apiVersion: batch/v1
 kind: Job
 metadata:
   name: {{ .Values.component }}-schema-loader
   labels:
     component: {{ .Values.component }}
-    annotations:
-      "helm.sh/hook": "pre-install"
+  annotations:
+    "helm.sh/hook": "pre-install"
 spec:
-   template:
+  template:
     spec:
       serviceAccountName: {{ .Values.component }}
       containers:
         - name: schema-loader
-          image: 529080510656.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.3
-          command: [ "bash", "-x", "/run.sh"]
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/schema-loader:2.0.3
+          command: [ "bash", "-x", "/run.sh" ]
           args: [ "{{ .Values.schemaLoadJob.type }}", "{{ .Values.component }}" ]
           env:
             - name: env
-              value: {{ .Values.env }}
+              value:  {{ .Values.env }}
       restartPolicy: Never
-   backoffLimit: 1
-     {{- end }}
-
+  backoffLimit: 1
+  {{- end }}
